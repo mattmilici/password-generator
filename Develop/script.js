@@ -5,6 +5,7 @@ function writePassword() {
     const pLength = prompt(
         "How many characters do you want to include? Number must between 8 and 128."
     );
+    // If the user doesn't enter a value between 8 and 128 then the user receives an error and has to restart.
     if (pLength >= 8 && pLength <= 128) {
         const pNumeric = confirm("Do you want to include numeric characters?");
         const pSpecial = confirm("Do you want to include special characters?");
@@ -39,7 +40,6 @@ function writePassword() {
             ((letters = letters), (lowerCheck = 1000));
 
         // -----------------Logic---------------
-        // If the user doesn't enter a value between 8 and 128 then the user receives an error and has to restart.
 
         do {
             // the join variable represents the actual password generated and sent to the users page. The join variable has to start each while loop blank so that the users requested length is met.
