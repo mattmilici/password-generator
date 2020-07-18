@@ -5,41 +5,42 @@ function writePassword() {
     const pLength = prompt(
         "How many characters do you want to include? Number must between 8 and 128."
     );
-    const pNumeric = confirm("Do you want to include numeric characters?");
-    const pSpecial = confirm("Do you want to include special characters?");
-    const pUpper = confirm("Do you want to include upppercase characters?");
-    const pLower = confirm("Do you want to include lowercase characters?");
-
-    // ---------------End of Prompts and confirms that users are asked to answer----------
-
-    // The letters variable is the string that random characters will be pulled from using a charat(randomlength). The characters tied to each prompt will be added to letters only if the users "confirms" them.
-    var letters = "";
-
-    // Check variable (1 for each prompt/confrim) are used to make sure the conditions are met. If these three conditions aren't greater than zero after a password is generated then a new password will be generated until all 4 checks are greater than zero. Great than zero means that there is atleast one character in the password that meets the requirements
-    let upperCheck = -1;
-    let lowerCheck = -1;
-    let numCheck = -1;
-    let specialCheck = -1;
-
-    // if the user answers yes to an individual prompt/confirm then those characters will be added to the letters string. If they answer no, then the check will be set to 1000 so that is excluded in the while loop.
-    pNumeric ? (letters = "0123456789") : ((letters = ""), (numCheck = 1000));
-
-    pSpecial
-        ?
-        (letters = letters + "%!@#$*&?") :
-        ((letters = letters), (specialCheck = 1000));
-    pUpper
-        ?
-        (letters = letters + "ABCDEFGHIJKLMNOPQRSTUVWXYZ") :
-        ((letters = letters), (upperCheck = 1000));
-    pLower
-        ?
-        (letters = letters + "abcdefghijklmnopqrstuvwxyz") :
-        ((letters = letters), (lowerCheck = 1000));
-
-    // -----------------Logic---------------
-    // If the user doesn't enter a value between 8 and 128 then the user receives an error and has to restart.
     if (pLength >= 8 && pLength <= 128) {
+        const pNumeric = confirm("Do you want to include numeric characters?");
+        const pSpecial = confirm("Do you want to include special characters?");
+        const pUpper = confirm("Do you want to include upppercase characters?");
+        const pLower = confirm("Do you want to include lowercase characters?");
+
+        // ---------------End of Prompts and confirms that users are asked to answer----------
+
+        // The letters variable is the string that random characters will be pulled from using a charat(randomlength). The characters tied to each prompt will be added to letters only if the users "confirms" them.
+        var letters = "";
+
+        // Check variable (1 for each prompt/confrim) are used to make sure the conditions are met. If these three conditions aren't greater than zero after a password is generated then a new password will be generated until all 4 checks are greater than zero. Great than zero means that there is atleast one character in the password that meets the requirements
+        let upperCheck = -1;
+        let lowerCheck = -1;
+        let numCheck = -1;
+        let specialCheck = -1;
+
+        // if the user answers yes to an individual prompt/confirm then those characters will be added to the letters string. If they answer no, then the check will be set to 1000 so that is excluded in the while loop.
+        pNumeric ? (letters = "0123456789") : ((letters = ""), (numCheck = 1000));
+
+        pSpecial
+            ?
+            (letters = letters + "%!@#$*&?") :
+            ((letters = letters), (specialCheck = 1000));
+        pUpper
+            ?
+            (letters = letters + "ABCDEFGHIJKLMNOPQRSTUVWXYZ") :
+            ((letters = letters), (upperCheck = 1000));
+        pLower
+            ?
+            (letters = letters + "abcdefghijklmnopqrstuvwxyz") :
+            ((letters = letters), (lowerCheck = 1000));
+
+        // -----------------Logic---------------
+        // If the user doesn't enter a value between 8 and 128 then the user receives an error and has to restart.
+
         do {
             // the join variable represents the actual password generated and sent to the users page. The join variable has to start each while loop blank so that the users requested length is met.
             var join = "";
@@ -79,7 +80,7 @@ function writePassword() {
         );
     } else {
         join =
-            "Please enter your criteria again and be sure to not misstype anything!";
+            "Oopps! It looks like you didn't select a number between 8 and 128! Please select the 'Generate Button' again and retry!";
     }
 
     // -----------------Returns Paddword-----------------
