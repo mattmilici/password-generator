@@ -4,14 +4,6 @@ Create an application that generates a random password based on user-selected cr
 
 If you are unfamiliar with special characters, take a look at [some examples](https://www.owasp.org/index.php/Password_special_characters).
 
-## User Story
-
-```
-AS AN employee with access to sensitive data
-I WANT to randomly generate a password that meets certain criteria
-SO THAT I can create a strong password that provides greater security
-```
-
 ## Acceptance Criteria
 
 ```
@@ -36,14 +28,35 @@ The following image demonstrates the application functionality:
 
 ![password generator demo](./Assets/03-javascript-homework-demo.png)
 
-## Review
+## File Summary
 
-You are required to submit the following for review:
+<!-- index.html -->
 
-* The URL of the deployed application.
+- Simple (yet responsive) layout for users to click a "Generate Password" button and see the responsive provided in the box above the password.
 
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+<!-- style.css -->
 
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+-Currenty styles we have selected. You can play with this if needed to build your own custom page.
+
+<!-- script.js -->
+
+- 1 prompts.... How many characters do you want to include? Number must between 8 and 128. - If the users enters anything besides a number between 8 and 128 the generator will stop and they will receive the follwoing message....
+  "Oopps! It looks like you didn't select a number between 8 and 128! Please select the 'Generate Button' again and retry!" Then they will have to retry until they select a valid input.
+
+  ![password generator incorrect input demo](./Assets/invalid-input.png)
+
+  4 confirms.. the user simply have to select "ok" (yes) or "cancel" ("no") based on their response then the password generated will either incldue or not include the characters.. see confirms below....
+  (1) Do you want to include numeric characters?"
+  (2) Do you want to include special characters?
+  (3) Do you want to include upppercase characters?
+  (4) Do you want to include lowercase characters?
+
+Once the prompt and confirms are answered, the script will generate a password and check to see if the conditions above were met. If not a new password will be generated and repeat the same process. This is possible thru the while loop starting on row 44.
+
+The script counts all the characters for each condition and counts the total number of them. If the number is greater then 0 (meaning there is atleast one type of that character) then the condition is met. If the user selected "no to a condition then it's count is set to 1000 so that it is not included in the while loop.
+
+[password generator incorrect input demo](./Assets/count-check.png)
+
+© 2020 Matt Milici All Rights Reserved.
+
 # password-generator
