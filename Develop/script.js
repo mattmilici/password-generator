@@ -12,6 +12,7 @@ function writePassword() {
         const pUpper = confirm("Do you want to include upppercase characters?");
         const pLower = confirm("Do you want to include lowercase characters?");
 
+
         // ---------------End of Prompts and confirms that users are asked to answer----------
 
         // The letters variable is the string that random characters will be pulled from using a charat(randomlength). The characters tied to each prompt will be added to letters only if the users "confirms" them.
@@ -81,6 +82,10 @@ function writePassword() {
     } else {
         join =
             "Oopps! It looks like you didn't select a number between 8 and 128! Please select the 'Generate Button' again and retry!";
+    }
+
+    if (letters === "") {
+        join = "You need to select 'Okay' for atleast one of the prompts";
     }
 
     // -----------------Returns Paddword-----------------
